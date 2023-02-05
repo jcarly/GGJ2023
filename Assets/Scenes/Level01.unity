@@ -335,10 +335,11 @@ MonoBehaviour:
   - {fileID: 4210226658871126955, guid: 86d79a920318b624b867b7c2f49d671e, type: 3}
   - {fileID: 6815951925146612187, guid: 01c95998e8b446244a84be67dc548929, type: 3}
   - {fileID: 6754147926652816550, guid: 5b1da55984ed54343bbdbc8b74823ac0, type: 3}
-  maxX: 12
-  minX: -12
-  maxY: 3.5
-  minY: 3
+  - {fileID: 3306252870009794434, guid: 472d84103f3d11044830f93bd4af28cb, type: 3}
+  maxX: 10
+  minX: -10
+  maxY: 3
+  minY: 10
   timeBetweenSpawn: 1
 --- !u!1 &490236480
 GameObject:
@@ -1165,7 +1166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   audioPlayer: {fileID: 0}
-  hp: 1
+  hp: 10
 --- !u!50 &1025610999
 Rigidbody2D:
   serializedVersion: 4
@@ -1712,6 +1713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSpeed: 1.5
+  player: {fileID: 1025610998}
 --- !u!4 &1607058328
 Transform:
   m_ObjectHideFlags: 0
