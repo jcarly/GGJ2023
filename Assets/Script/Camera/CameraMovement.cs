@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public float cameraSpeed;
+    public Player player;
 
     // Update is called once per frame
     void Update()

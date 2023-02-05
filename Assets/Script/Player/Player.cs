@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         audioPlayer = GetComponent<AudioSource> ();
-        ScoreManager.score = 0;
     }
 
     // Update is called once per frame
@@ -31,12 +30,17 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Bonus" || collision.tag == "Obstacle")
+        if (collision.TryGetComponent(out Collisionable collisionable) && collisionable.collisionSound) {
+            audioPlayer.PlayOneShot(collisionable.collisionSound);
+        }
+        if (collision.tag == "Obstacle")
         {
-            Collisionable collisionable = collision.GetComponent<Collisionable>();
-            if (collisionable && collisionable.collisionSound) {
-                audioPlayer.PlayOneShot(collisionable.collisionSound);
-            }
+            hp--;
+        }
+        if (collision.tag == "Bonus")
+        {
+            ScoreManager.score += 10;
+            Destroy(collision.gameObject);
         }
     }
 }

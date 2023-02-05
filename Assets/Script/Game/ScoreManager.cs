@@ -7,11 +7,12 @@ public class ScoreManager : MonoBehaviour
 {
     public Text scoreText;
     public static float score;
+    public Player player;
 
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.FindGameObjectWithTag("Player") != null)
+        if(player && player.hp > 0)
         {
             score += 1 * Time.deltaTime;
             Time.timeScale = 1 + 1 * (score / 150);
