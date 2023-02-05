@@ -9,11 +9,13 @@ public class Player : MonoBehaviour
     private Vector2 playerDirection;
     public AudioSource audioPlayer;
     public int hp = 10;
+    private float initialY;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         audioPlayer = GetComponent<AudioSource> ();
+        initialY = transform.localPosition.y;
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     {
         float directionY = Input.GetAxisRaw("Horizontal");
         playerDirection = new Vector2(directionY, 0).normalized;
+        transform.localPosition = new Vector3(transform.localPosition.x, initialY - (hp / 5), transform.localPosition.z);
     }
 
     void FixedUpdate()
