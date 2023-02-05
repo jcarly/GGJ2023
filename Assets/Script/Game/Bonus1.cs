@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bonus : MonoBehaviour
+public class Bonus1 : MonoBehaviour
 {
     private GameObject player;
     // Start is called before the first frame update
@@ -15,7 +15,7 @@ public class Bonus : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            ScoreManager.score += 10;
+            ScoreManager.score += 25;
             Destroy(gameObject);
         }
     }
