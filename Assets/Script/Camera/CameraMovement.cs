@@ -24,5 +24,9 @@ public class CameraMovement : MonoBehaviour
         {
             transform.SetPositionAndRotation(initialPosition, transform.rotation);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
