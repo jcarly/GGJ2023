@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 playerDirection;
     public AudioSource audioPlayer;
+    public int hp = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,9 +31,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Bonus")
+        if(collision.tag == "Bonus" || collision.tag == "Obstacle")
         {
-            audioPlayer.Play();
+            Collisionable collisionable = collision.GetComponent<Collisionable>();
+            if (collisionable && collisionable.collisionSound) {
+                audioPlayer.PlayOneShot(collisionable.collisionSound);
+            }
         }
     }
 }

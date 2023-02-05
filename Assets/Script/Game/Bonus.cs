@@ -2,18 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bonus : MonoBehaviour
+public class Bonus : Collisionable
 {
-    private GameObject player;
-    // Start is called before the first frame update
-    void Start()
+    private new void OnTriggerEnter2D(Collider2D collision)
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
+        base.OnTriggerEnter2D(collision);
+        if (collision.tag == "Player")
         {
             ScoreManager.score += 10;
             Destroy(gameObject);
