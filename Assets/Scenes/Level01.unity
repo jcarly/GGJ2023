@@ -1000,7 +1000,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025610994}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 13.832, z: -0.1}
+  m_LocalPosition: {x: 0, y: 14, z: -0.1}
   m_LocalScale: {x: 0.13457312, y: 0.20726821, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1167,6 +1167,7 @@ MonoBehaviour:
   playerSpeed: 5
   audioPlayer: {fileID: 0}
   hp: 10
+  degenerationSpeed: 0.2
 --- !u!50 &1025610999
 Rigidbody2D:
   serializedVersion: 4
