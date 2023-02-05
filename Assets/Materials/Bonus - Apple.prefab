@@ -63,6 +63,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonus - Apple
       objectReference: {fileID: 0}
+    - target: {fileID: 8061134340571819901, guid: 5b1da55984ed54343bbdbc8b74823ac0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061134340571819901, guid: 5b1da55984ed54343bbdbc8b74823ac0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -3358498408659761762, guid: 5b1da55984ed54343bbdbc8b74823ac0, type: 3}
     - {fileID: 5405255418271363978, guid: 5b1da55984ed54343bbdbc8b74823ac0, type: 3}

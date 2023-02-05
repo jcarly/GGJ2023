@@ -23,10 +23,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float directionY = Input.GetAxisRaw("Horizontal");
-        playerDirection = new Vector2(directionY, 0).normalized;
-        hp -= Time.deltaTime * degenerationSpeed;
-        transform.localPosition = new Vector3(transform.localPosition.x, initialY - (hp / 3), transform.localPosition.z);
+        if (ScoreManager.score - 6 >= 0) {
+            float directionY = Input.GetAxisRaw("Horizontal");
+            playerDirection = new Vector2(directionY, 0).normalized;
+            hp -= Time.deltaTime * degenerationSpeed;
+            transform.localPosition = new Vector3(transform.localPosition.x, initialY - (hp / 3), transform.localPosition.z);
+        }
     }
 
     void FixedUpdate()
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(playerDirection.x * playerSpeed, 0);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+       private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Collisionable collisionable) && collisionable.collisionSound) {
             audioPlayer.PlayOneShot(collisionable.collisionSound);

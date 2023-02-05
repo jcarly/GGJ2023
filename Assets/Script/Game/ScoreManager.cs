@@ -29,6 +29,7 @@ public class ScoreManager : MonoBehaviour
     {
         if(player && player.hp > 0)
         {
+            string textualScore = ((int)score - 6).ToString();
             score += 1 * Time.deltaTime;
             Time.timeScale = 1 + 1 * score * speedIncrease;
             scoreText.text = ((int)score).ToString();
