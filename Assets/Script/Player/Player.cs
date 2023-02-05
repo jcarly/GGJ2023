@@ -8,14 +8,16 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 playerDirection;
     public AudioSource audioPlayer;
-    public int hp = 10;
+    public float hp = 10;
     private float initialY;
+    public float degenerationSpeed = 0.01f; 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         audioPlayer = GetComponent<AudioSource> ();
         initialY = transform.localPosition.y;
+        ScoreManager.score = 0;
     }
 
     // Update is called once per frame
@@ -23,7 +25,8 @@ public class Player : MonoBehaviour
     {
         float directionY = Input.GetAxisRaw("Horizontal");
         playerDirection = new Vector2(directionY, 0).normalized;
-        transform.localPosition = new Vector3(transform.localPosition.x, initialY - (hp / 5), transform.localPosition.z);
+        hp -= Time.deltaTime * degenerationSpeed;
+        transform.localPosition = new Vector3(transform.localPosition.x, initialY - (hp / 3), transform.localPosition.z);
     }
 
     void FixedUpdate()
@@ -39,10 +42,11 @@ public class Player : MonoBehaviour
         if (collision.tag == "Obstacle")
         {
             hp--;
+            Physics2D.IgnoreCollision(collision.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
         if (collision.tag == "Bonus")
         {
-            ScoreManager.score += 10;
+            hp++;
             Destroy(collision.gameObject);
         }
     }
