@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle Skull
       objectReference: {fileID: 0}
+    - target: {fileID: 4572667062086219059, guid: af6e00194a725ad41b8c6b8e3e9fea14, type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0fb13137538f2cb45a7fcaf726b0b091, type: 3}
     - target: {fileID: 6515076964869481355, guid: af6e00194a725ad41b8c6b8e3e9fea14, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
       value: -3.3501048

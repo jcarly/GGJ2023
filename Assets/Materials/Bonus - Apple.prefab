@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2664712017214870086, guid: 5b1da55984ed54343bbdbc8b74823ac0, type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e39fdb627fd6f674fa120bc3382f8ee1, type: 3}
     - target: {fileID: 5131282139091317182, guid: 5b1da55984ed54343bbdbc8b74823ac0, type: 3}
       propertyPath: m_RootOrder
       value: 0

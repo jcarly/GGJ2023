@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SpawnObjects : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class SpawnObjects : MonoBehaviour
     public float minY;
     public float timeBetweenSpawn;
     private float spawnTime;
+    public float spawnScoreFactor = 100f;
 
 
     // Update is called once per frame
@@ -19,7 +22,7 @@ public class SpawnObjects : MonoBehaviour
         if(Time.time > spawnTime)
         {
             Spawn();
-            spawnTime = Time.time + timeBetweenSpawn;
+            spawnTime = Time.time + (timeBetweenSpawn / (spawnScoreFactor * ScoreManager.score + 1 ));
         }
     }
 
