@@ -12,6 +12,16 @@ public class ScoreManager : MonoBehaviour
     public List<Sprite> plantSprites;
     public float speedIncrease = 1 / 150;
     public float scoreThreshold = 200;
+    public AudioSource musicSoft;
+    public AudioSource musicHard;
+    float backgroundVolume;
+
+    private void Start()
+    {
+        if(musicSoft) {
+            backgroundVolume = musicSoft.volume;
+        }
+    }
 
 
     // Update is called once per frame
@@ -21,7 +31,15 @@ public class ScoreManager : MonoBehaviour
         {
             score += 1 * Time.deltaTime;
             Time.timeScale = 1 + 1 * score * speedIncrease;
-            scoreText.text = ((int)score).ToString();         
+            scoreText.text = ((int)score).ToString();
+            if (musicSoft)
+            {
+                musicSoft.volume = backgroundVolume * (1 - score / (plantSprites.Count * scoreThreshold));
+            }
+            if (musicHard)
+            {
+                musicHard.volume = backgroundVolume * (score / (plantSprites.Count * scoreThreshold));
+            }
         } else {
             scoreText.text = "Score : " + ((int)score).ToString();
             int spriteIndex = (int) (score / scoreThreshold);
